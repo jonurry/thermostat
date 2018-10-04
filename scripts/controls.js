@@ -7,7 +7,9 @@ $(document).ready(function() {
   };
 
   let displayEnergyUsage = function() {
-    $('#energy-usage').text(thermostat.energyUsage.apply(thermostat));
+    let energyUsage = thermostat.energyUsage.apply(thermostat);
+    $('#energy-usage').text(energyUsage);
+    $('#energy-usage').attr('class', energyUsage);
   };
 
   let displayTemperature = function() {
