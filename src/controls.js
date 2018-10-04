@@ -25,9 +25,12 @@ $(document).ready(function() {
   };
 
   let setPowerSave = function(value) {
-    thermostat.powerSave = value === 'on' ? true : false;
-    displayTemperature();
-    displayEnergyUsage();
+    if (value === 'on') {
+      thermostat.powerSaveOn();
+    } else {
+      thermostat.powerSaveOff();
+    }
+    updateDisplay();
   };
 
   let updateDisplay = function() {
