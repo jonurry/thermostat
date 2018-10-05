@@ -1,0 +1,31 @@
+{
+  "name": "thermostat",
+  "version": "1.0.0",
+  "description": "Makers Week 5 Afternoon Challenge",
+  "main": "thermostat.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "open SpecRunner.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonurry/thermostat.git"
+  },
+  "keywords": [
+    "thermostat",
+    "jQuery",
+    "weather",
+    "API"
+  ],
+  "author": "Jon Urry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonurry/thermostat/issues"
+  },
+  "homepage": "https://github.com/jonurry/thermostat#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

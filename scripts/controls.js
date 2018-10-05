@@ -40,6 +40,11 @@ $(document).ready(function() {
 		displayEnergyUsage();
 	};
 
+	let updateCityAndTemperature = function(city, temperature) {
+		$('#city').text(city);
+		$('#city-temperature').text(temperature + '°C');
+	};
+
 	$('#decrease-temperature').click(decreaseTemperature);
 	$('#increase-temperature').click(increaseTemperature);
 	$('input[name=power-save]:radio').change(function() {
@@ -48,4 +53,10 @@ $(document).ready(function() {
 	$('#reset').click(reset);
 
 	updateDisplay();
+
+	new WeatherAPI().getCurrentTemperature(
+		'London',
+		'uk',
+		updateCityAndTemperature
+	);
 });
