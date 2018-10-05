@@ -40,9 +40,16 @@ $(document).ready(function() {
 		displayEnergyUsage();
 	};
 
-	let updateCityAndTemperature = function(city, temperature) {
-		$('#city').text(city);
+	let updateCityTemperature = function(city, temperature) {
 		$('#city-temperature').text(temperature + '°C');
+	};
+
+	let getCityTemperature = function(city, country) {
+		new WeatherAPI().getCurrentTemperature(
+			city,
+			country,
+			updateCityTemperature
+		);
 	};
 
 	$('#decrease-temperature').click(decreaseTemperature);
@@ -52,11 +59,13 @@ $(document).ready(function() {
 	});
 	$('#reset').click(reset);
 
-	updateDisplay();
+	$('#city').change(function(event) {
+		event.preventDefault();
+		var city = $('#city option:selected').text();
+		var country = $('#city  option:selected').val();
+		getCityTemperature(city, country);
+	});
 
-	new WeatherAPI().getCurrentTemperature(
-		'London',
-		'uk',
-		updateCityAndTemperature
-	);
+	getCityTemperature('London', 'uk');
+	updateDisplay();
 });
